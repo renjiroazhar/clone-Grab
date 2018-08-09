@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Tabs, WhiteSpace, Badge } from "antd-mobile";
-import Caraousel from "./Caraousel";
+import Page2 from "../Container/Page2";
+
 
 const tabs = [
   { title: <Badge text={"3"}>Transport</Badge> },
@@ -9,12 +10,16 @@ const tabs = [
 ];
 
 export default class Tabbar extends Component {
+  state = {
+    data: 3
+  }
   render() {
     return (
       <div>
         <Tabs
           tabs={tabs}
-          initialPage={1}
+          swipeable={false}
+          initialPage={this.state.data}
           onChange={(tab, index) => {
             console.log("onChange", index, tab);
           }}
@@ -32,17 +37,10 @@ export default class Tabbar extends Component {
             Content of first tab
           </div>
           <div>
-            <Caraousel />
+            <Page2 />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "150px",
-              backgroundColor: "#fff"
-            }}>
-            Content of third tab
+          <div>
+
           </div>
         </Tabs>
         <WhiteSpace />
